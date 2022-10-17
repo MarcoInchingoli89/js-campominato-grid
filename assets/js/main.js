@@ -5,8 +5,8 @@ Ci saranno quindi 10 caselle per ognuna delle 10 righe.
 Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata. */
 
 /* Istruzioni */
- 
-/*Griglia*/
+
+/*Creiamo la griglia*/
 //Crea un container su html
 //Seleziona il container con queryselector
 //Lo inseriamo in una variabile
@@ -17,6 +17,14 @@ const cellEl = document.createElement('div');
 cellEl.className = 'cell';
 //Inseriamo il div dentro al container
 containerEl.append(cellEl);
+//Inseriamo il markup in una costante
+const cellMarkUp = `<div class="container">${cellEl}</div>`
+//Impostiamo una costante per contare fino a 100
+const maxCellNumber = 100;
+//Contiamo da 1 a 100 con un ciclo for
+for (let i = 1; i <= maxCellNumber; i++) {
+    
+}
 
 
 
