@@ -11,21 +11,18 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed 
 //Seleziona il container con queryselector
 //Lo inseriamo in una variabile
 const containerEl = document.querySelector('.container');
-//Creiamo un div dove inseriremo le celle
-const cellEl = document.createElement('div');
-//Diamo la classe cell al nostro div
-cellEl.className = 'cell';
-//Inseriamo il div dentro al container
-containerEl.append(cellEl);
-//Inseriamo il markup in una costante
-const cellMarkUp = `<div class="container">${cellEl}</div>`
+//Seleziona il pulsante
+//Inseriscilo in una variabile
+const btn = document.querySelector('button');
 //Impostiamo una costante per contare fino a 100
-const maxCellNumber = 100;
+let maxCellNumber = 100;
 //Contiamo da 1 a 100 con un ciclo for
 for (let i = 1; i <= maxCellNumber; i++) {
-    
+    //Creiamo il markup e lo inseriamo in una variabile
+    const cellMarkUp = `<div class="cell">${i}</div>`;
+    containerEl.insertAdjacentHTML('beforeend', cellMarkUp);
 }
-
+//Aggiungiamo un eventlistener alle celle per farle colorare di azzurro
 
 
 
