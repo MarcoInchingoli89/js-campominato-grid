@@ -10,52 +10,48 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed 
 //Crea un container su html
 //Seleziona il container con queryselector
 //Lo inseriamo in una variabile
-const gridElement = document.querySelector('.container');
+const gridContainer = document.querySelector('.container');
 //Seleziona il pulsante
 //Inseriscilo in una variabile
-const buttonElement = document.querySelector('button');
+const playButton = document.querySelector('button');
 //Numero massimo di celle per livello
 const gridLevel = 100;
 //Numero di celle per riga da inserire
 const cellsPerRow = Math.sqrt(gridLevel);
 /* console.log(cellsPerRow); */
-//Variabile con il markup delle celle da inserire nella griglia
-const cellMarkUp = document.createElement('div');
-        cellMarkUp.className = 'cell';
-        cellMarkUp.innerText = i;
+
+/* Pulsante che genera la griglia */
 //Aggiungiamo un eventListener al click del pulsante per generare la griglia
-buttonElement.addEventListener('click', function () {
+playButton.addEventListener('click', function () {
     /* console.log('Ho cliccato'); */
-    //Ciclo un x numero di volte
-    for (let i = 1; i <= gridLevel; i++) {
-        //Inserisco il markup con la classe cell e i numeri inclusi nella variabile i all'interno del mio html
-        const cellMarkUp = document.createElement('div');
-        cellMarkUp.className = 'cell';
-        cellMarkUp.innerText = i;
-        gridElement.insertAdjacentElement("beforeend", cellMarkUp);
-        
-    }
+    //Svuoto il container al click
+    gridContainer.innerHTML = '';
+    generateCells(gridContainer, gridLevel);
     
 })
 
-cellMarkUp.addEventListener('click', function () {
-    this.style.color = blue;
-})
+/*Funzione che general le celle*/
+//Scriviamo una funzione per generare le celle
+function generateCells(grid, cellsNumber) {
+    for (let i = 1; i <= cellsNumber; i++) {
+        //Inserisco il markup con la classe cell e i numeri inclusi nella variabile i all'interno del mio html
+        const cellElement = document.createElement('div');
+        cellElement.className = 'cell';
+        cellElement.innerText = i;
+        grid.insertAdjacentElement("beforeend", cellElement);       
+    }
+}
 
-/* cellMarkUp.addEventListener('click', function () {
-    cellMarkUp.style.color = aqua;
-    console.log(cellMarkUp);
-}) */
-
-//Contiamo da 1 a 100 con un ciclo for
-    //Creiamo il markup e lo inseriamo in una variabile
- 
-//Aggiungiamo un eventlistener alle celle per farle colorare di azzurro
-
-
-
-/*Pulsante*/
-//Crea un pulsante su html
-//Seleziono il pulsante con un queryselector su js
-//Inserisco il pulsante in una variabile
+/*Al click la cella cambia colore e stampa il numero della cella*/
+const Allcells = document.querySelectorAll('.cell');
+for (let i = 0; i < Allcells.length; i++) {
+    const Onecell = Allcells[i];
+    //Creo un eventListener per celle in modo che cambino colore al click
+    Onecell.addEventListener('click', function () {
+        Onecell.classList.toggle('active');
+        //Stampa su console il numero della cella
+        console.log(Onecell.innerHTML);
+    })
+    
+}
 

@@ -7,6 +7,6 @@
     align-items: center;
 }
 
-.d_none {
-    display: none;
+.active {
+    background-color: aqua;
 }
