@@ -25,7 +25,7 @@ playButton.addEventListener('click', function () {
     //Svuoto il container al click
     gridContainer.innerHTML = '';
     generateCells(gridContainer, gridLevel);
-    
+
 })
 
 /*Funzione che general le celle*/
@@ -36,14 +36,19 @@ function generateCells(grid, cellsNumber) {
         const cellElement = document.createElement('div');
         cellElement.className = 'cell';
         cellElement.innerText = i;
-        grid.insertAdjacentElement("beforeend", cellElement);      
+        grid.insertAdjacentElement("beforeend", cellElement);
+
+        /*Al click la cella cambia colore e stampa il numero della cella*/
+        //Creo un eventListener per celle in modo che cambino colore al click
+        cellElement.addEventListener('click', function () {
+            //Imposto un colore di sfondo da js
+            this.style.backgroundColor = 'aqua';
+            //Stampo il numero della cella cliccata su console con innerText che mi scrive il testo all'interno di un elemento, il numero in questo caso
+            console.log(this.innerText);
+        })
     }
+
+
+
 }
 
-/*Al click la cella cambia colore e stampa il numero della cella*/
-//Creo un eventListener per celle in modo che cambino colore al click
-const cells = generateCells(gridContainer, gridLevel)
-cells.addEventListener('click', function () {
-    this.style.color = "aqua";
-    
-})
