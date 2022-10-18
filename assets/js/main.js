@@ -10,18 +10,30 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed 
 //Crea un container su html
 //Seleziona il container con queryselector
 //Lo inseriamo in una variabile
-const containerEl = document.querySelector('.container');
+const gridElement = document.querySelector('.container');
 //Seleziona il pulsante
 //Inseriscilo in una variabile
-const btn = document.querySelector('button');
-//Impostiamo una costante per contare fino a 100
-let maxCellNumber = 100;
+const buttonElement = document.querySelector('button');
+//Numero massimo di celle per livello
+const gridLevel = 100;
+//Numero di celle per riga da inserire
+const cellsPerRow = Math.sqrt(gridLevel);
+/* console.log(cellsPerRow); */
+//Aggiungiamo un eventListener al click del pulsante per generare la griglia
+buttonElement.addEventListener('click', function () {
+    /* console.log('Ho cliccato'); */
+    //Ciclo un x numero di volte
+    for (let i = 1; i <= gridLevel; i++) {
+        //Inserisco il markup con la classe cell e i numeri inclusi nella variabile i all'interno del mio html
+        const cellMarkUp = `<div class="cell">${i}</div>`;
+        gridElement.insertAdjacentHTML("beforeend", cellMarkUp);
+
+    }
+
+})
 //Contiamo da 1 a 100 con un ciclo for
-for (let i = 1; i <= maxCellNumber; i++) {
     //Creiamo il markup e lo inseriamo in una variabile
-    const cellMarkUp = `<div class="cell">${i}</div>`;
-    containerEl.insertAdjacentHTML('beforeend', cellMarkUp);
-}
+ 
 //Aggiungiamo un eventlistener alle celle per farle colorare di azzurro
 
 
