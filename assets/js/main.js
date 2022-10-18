@@ -16,8 +16,6 @@ const gridContainer = document.querySelector('.container');
 const playButton = document.querySelector('button');
 //Numero massimo di celle per livello
 const gridLevel = 100;
-//Numero di celle per riga da inserire
-const cellsPerRow = Math.sqrt(gridLevel);
 /* console.log(cellsPerRow); */
 
 /* Pulsante che genera la griglia */
@@ -38,20 +36,14 @@ function generateCells(grid, cellsNumber) {
         const cellElement = document.createElement('div');
         cellElement.className = 'cell';
         cellElement.innerText = i;
-        grid.insertAdjacentElement("beforeend", cellElement);       
+        grid.insertAdjacentElement("beforeend", cellElement);      
     }
 }
 
 /*Al click la cella cambia colore e stampa il numero della cella*/
-const Allcells = document.querySelectorAll('.cell');
-for (let i = 0; i < Allcells.length; i++) {
-    const Onecell = Allcells[i];
-    //Creo un eventListener per celle in modo che cambino colore al click
-    Onecell.addEventListener('click', function () {
-        Onecell.classList.toggle('active');
-        //Stampa su console il numero della cella
-        console.log(Onecell.innerHTML);
-    })
+//Creo un eventListener per celle in modo che cambino colore al click
+const cells = generateCells(gridContainer, gridLevel)
+cells.addEventListener('click', function () {
+    this.style.color = "aqua";
     
-}
-
+})
