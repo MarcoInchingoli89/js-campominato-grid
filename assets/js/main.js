@@ -19,18 +19,34 @@ const gridLevel = 100;
 //Numero di celle per riga da inserire
 const cellsPerRow = Math.sqrt(gridLevel);
 /* console.log(cellsPerRow); */
+//Variabile con il markup delle celle da inserire nella griglia
+const cellMarkUp = document.createElement('div');
+        cellMarkUp.className = 'cell';
+        cellMarkUp.innerText = i;
 //Aggiungiamo un eventListener al click del pulsante per generare la griglia
 buttonElement.addEventListener('click', function () {
     /* console.log('Ho cliccato'); */
     //Ciclo un x numero di volte
     for (let i = 1; i <= gridLevel; i++) {
         //Inserisco il markup con la classe cell e i numeri inclusi nella variabile i all'interno del mio html
-        const cellMarkUp = `<div class="cell">${i}</div>`;
-        gridElement.insertAdjacentHTML("beforeend", cellMarkUp);
-
+        const cellMarkUp = document.createElement('div');
+        cellMarkUp.className = 'cell';
+        cellMarkUp.innerText = i;
+        gridElement.insertAdjacentElement("beforeend", cellMarkUp);
+        
     }
-
+    
 })
+
+cellMarkUp.addEventListener('click', function () {
+    this.style.color = blue;
+})
+
+/* cellMarkUp.addEventListener('click', function () {
+    cellMarkUp.style.color = aqua;
+    console.log(cellMarkUp);
+}) */
+
 //Contiamo da 1 a 100 con un ciclo for
     //Creiamo il markup e lo inseriamo in una variabile
  
